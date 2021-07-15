@@ -29,11 +29,10 @@ export default {
   .inner {
     height: 90%;
     background-color: #2e3a46;
-    padding: 20px;
+    padding: 35px;
     .album-img {
       img {
-        width: 164px;
-        height: 164px;
+        width: 100%;
       }
     }
     .details {
