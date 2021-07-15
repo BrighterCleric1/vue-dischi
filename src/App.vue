@@ -32,17 +32,19 @@ export default {
   },
   computed: {
     filteredGenres() {
-      if (
-        this.inputSelectGenre.length === 0 ||
-        this.inputSelectGenre === "null"
-      ) {
+      if (this.inputSelectGenre.length === 0 && this.inputSelect === "") {
+        return this.albums;
+      } else if (this.inputSelectGenre === "null") {
         return this.albums;
       }
 
       return this.albums.filter((element) => {
-        return element.genre
-          .toLowerCase()
-          .includes(this.inputSelectGenre.toLowerCase());
+        return (
+          element.genre
+            .toLowerCase()
+            .includes(this.inputSelectGenre.toLowerCase()) &&
+          element.title.toLowerCase().includes(this.inputSelect.toLowerCase())
+        );
       });
     },
   },
